@@ -1,93 +1,99 @@
-# @shaon07/express-log
+Got it! Here’s the updated `README.md` file without the configuration section:
 
-## Introduction
-**@shaon07/express-log** is a middleware function for Express.js that mimics Laravel's `dd()` function. It allows developers to dump data directly to the console in a similar way to Laravel's `dd()`, making debugging easier and more efficient.
+```markdown
+# express-log
 
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Dependencies](#dependencies)
-- [Scripts](#scripts)
-- [Configuration](#configuration)
-- [Documentation](#documentation)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
-- [Contributors](#contributors)
-- [License](#license)
+A middleware function for Express.js that mimics Laravel's `dd()` function. This package helps you log and inspect variables easily during development.
+
+## Features
+
+- Simple and easy-to-use middleware.
+- Mimics Laravel's `dd()` function for debugging.
+- Outputs JSON and console logs.
 
 ## Installation
-To install **@shaon07/express-log**, run the following command:
+
+Install the package using npm:
 
 ```bash
-npm install @shaon07/express-log
+npm install express-log
 ```
 
 ## Usage
-To use the middleware in your Express.js application, include it and apply it as follows:
+
+### Normal Console Logging
+
+Typically, you might log variables in an Express.js application like this:
 
 ```javascript
-import express from 'express';
-import expressLog from '@shaon07/express-log';
+const express = require('express');
 
 const app = express();
 
-app.use(expressLog);
-
 app.get('/', (req, res) => {
-  // Your code here
-  req.log("Hello world")
-  res.send('Hello World');
+  const user = { name: 'John Doe', age: 30 };
+  console.log(user); // Logs the user object to the console
+  res.send('Check your console for logged variables!');
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 ```
 
-## Features
-- Mimics Laravel's `dd()` function.
-- Dumps data directly to the console.
-- Helps in debugging Express.js applications efficiently.
+### Using `express-log`
 
-## Dependencies
-**@shaon07/express-log** relies on the following npm packages:
-- `express`: ^4.19.2
-- `nodemon`: ^3.1.4
-- `util`: ^0.12.5
+To use `express-log` in your Express.js application, follow these steps:
 
-## Scripts
-The following scripts are defined in the `package.json`:
+1. Import the package and use it as middleware:
 
-- `start`: Runs the application using Node.js.
-  ```bash
-  npm start
-  ```
+```javascript
+const express = require('express');
+const expressLog = require('express-log');
 
-- `dev`: Runs the application using Nodemon for automatic restarts.
-  ```bash
-  npm run dev
-  ```
+const app = express();
 
-- `test`: Placeholder for running tests.
-  ```bash
-  npm test
-  ```
+// Use express-log middleware
+app.use(expressLog);
 
-## Configuration
-There are no additional configuration steps required for **@shaon07/express-log**. Simply import and use it in your Express.js application.
+// Your routes here
+app.get('/', (req, res) => {
+  const user = { name: 'John Doe', age: 30 };
+  res.log(user); // Uses express-log to log the user object
+  res.send('Check your console for logged variables!');
+});
 
-## Documentation
-For more detailed documentation, visit the [homepage](https://github.com/shaon07/express-log#readme).
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+```
 
-## Examples
-You can find example usage in the [Usage](#usage) section.
+2. The `express-log` middleware will log variables to the console when a request is made.
 
-## Troubleshooting
-If you encounter any issues or bugs, please report them on the [GitHub issues page](https://github.com/shaon07/express-log/issues).
+## Contributing
 
-## Contributors
-Developed by [shaon07](https://github.com/shaon07).
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/shaon07/express-log/blob/main/LICENSE) file for details.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/shaon07/express-log/issues).
+
+## Links
+
+- [GitHub Repository](https://github.com/shaon07/express-log)
+- [npm Package](https://www.npmjs.com/package/express-log)
+```
+
+This version of the `README.md` file is more concise, focusing on the essential usage examples and omitting the configuration section.
