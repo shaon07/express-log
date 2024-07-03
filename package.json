@@ -1,0 +1,36 @@
+{
+  "name": "@shaon07/express-log",
+  "version": "1.0.0",
+  "description": "A middleware function for Express.js that mimics Laravel's dd() function.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaon07/express-log.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "dd",
+    "laravel",
+    "node",
+    "console",
+    "json"
+  ],
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "util": "^0.12.5"
+  },
+  "author": "shaon07",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaon07/express-log/issues"
+  },
+  "homepage": "https://github.com/shaon07/express-log#readme"
+}
