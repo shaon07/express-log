@@ -1,6 +1,6 @@
 {
   "name": "@shaon07/express-log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A middleware function for Express.js that mimics Laravel's dd() function.",
   "main": "index.js",
   "type": "module",
