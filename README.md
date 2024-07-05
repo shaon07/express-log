@@ -43,6 +43,8 @@ app.listen(PORT, () => {
 });
 ```
 
+![normal](https://img001.prntscr.com/file/img001/uHh2sbjiQieh569jmjFqtQ.png)
+
 ### Using `express-log`
 
 To use `express-log` in your Express.js application, follow these steps:
@@ -60,8 +62,12 @@ app.use(expressLog);
 
 // Your routes here
 app.get('/', (req, res) => {
-  const user = { name: 'John Doe', age: 30 };
-  res.log(user); // Uses express-log to log the user object
+  const user = [
+    { name: "John Doe", age: 30 },
+    { name: "Jane Doe", age: 25 },
+    { name: "Bob Smith", age: 28 },
+  ]
+  req.expressLog(user); // Uses express-log to log the user data
   res.send('Check your console for logged variables!');
 });
 
@@ -70,6 +76,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 ```
+
+![normal](https://img001.prntscr.com/file/img001/BDjFz6ADRmqbXv0g1UPZpg.png)
 
 2. The `express-log` middleware will log variables to the console when a request is made.
 
