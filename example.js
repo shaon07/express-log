@@ -1,10 +1,10 @@
 import express from "express";
-import expressLog from "./index.js";
+import log from "./index.js";
 const app = express();
 const port = 8081;
 
 // !! EXAMPLE CODE STARTS HERE !!
-app.use(expressLog);
+app.use(log);
 
 app.get("/", (req, res) => {
   // ! NORMAL CONSOLE WE USE;
@@ -13,9 +13,8 @@ app.get("/", (req, res) => {
     { name: "Jane Doe", age: 25 },
     { name: "Bob Smith", age: 28 },
   ]
-  req.expressLog(user);
+  req.log(user);
   
-  res.send("Hello, World!");
 });
 
 app.listen(port, () => {
