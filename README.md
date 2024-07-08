@@ -12,6 +12,14 @@ A middleware function for Express.js that mimics Laravel's `dd()` function. This
 - Outputs JSON and console logs.
 ```
 
+## If using Testing app like POSTMAN, 
+then set the following settings
+```bash 
+pm.visualizer.set(pm.response.text());
+```
+
+![normal](https://img001.prntscr.com/file/img001/SKy5tcSUQ9Cvofb2ya8lfA.png)
+
 ## Installation
 
 Install the package using npm:
@@ -32,7 +40,11 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  const user = { name: 'John Doe', age: 30 };
+  const user = [
+    { name: "John Doe", age: 30 },
+    { name: "Jane Doe", age: 25 },
+    { name: "Bob Smith", age: 28 },
+  ]
   console.log(user); // Logs the user object to the console
   res.send('Check your console for logged variables!');
 });
@@ -43,7 +55,7 @@ app.listen(PORT, () => {
 });
 ```
 
-![normal](https://img001.prntscr.com/file/img001/uHh2sbjiQieh569jmjFqtQ.png)
+![normal](https://img001.prntscr.com/file/img001/fBtR-ryLQ7qUvgrWekXGTg.png)
 
 ### Using `express-log`
 
@@ -53,12 +65,12 @@ To use `express-log` in your Express.js application, follow these steps:
 
 ```javascript
 const express = require('express');
-const expressLog = require('express-log');
+const log = require('express-log');
 
 const app = express();
 
 // Use express-log middleware
-app.use(expressLog);
+app.use(log);
 
 // Your routes here
 app.get('/', (req, res) => {
@@ -67,7 +79,7 @@ app.get('/', (req, res) => {
     { name: "Jane Doe", age: 25 },
     { name: "Bob Smith", age: 28 },
   ]
-  req.expressLog(user); // Uses express-log to log the user data
+  req.log(user); // Uses express-log to log the user data
   res.send('Check your console for logged variables!');
 });
 
